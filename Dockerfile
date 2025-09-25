@@ -1,4 +1,4 @@
-FROM php:8.3.14-fpm-bullseye
+FROM php:8.4.11-fpm-bullseye
 
 LABEL authors = "Roy To <roy.to@itdogsoftware.co>"
 # Install library & necessary service
@@ -24,4 +24,5 @@ RUN sed -i "/memory_limit\s=\s/s/=.*/= 512M/" /usr/local/etc/php/php.ini
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 EXPOSE 9000
