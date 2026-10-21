@@ -8,7 +8,6 @@ RUN pecl channel-update pecl.php.net && pecl install redis xdebug-3.3.0 && docke
 RUN docker-php-ext-install mysqli 
 RUN docker-php-ext-install pdo
 RUN docker-php-ext-install pdo_mysql
-RUN docker-php-ext-install opcache
 RUN docker-php-ext-install zip
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd
