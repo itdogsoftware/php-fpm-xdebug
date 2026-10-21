@@ -2,14 +2,14 @@ FROM php:8.5-rc-fpm-trixie
 
 LABEL authors = "Roy To <roy.to@itdogsoftware.co>"
 # Install library & necessary service
-RUN apt-get update && apt-get install -y libzip-dev zip libfreetype6-dev libjpeg62-turbo-dev libpng-dev cron supervisor vim nodejs gettext-base && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y libzip-dev zip libfreetype6-dev libjpeg62-turbo-dev libpng-dev libgmp-dev cron supervisor vim nodejs gettext-base && rm -rf /var/lib/apt/lists/*
 # Install docker php extensions
 RUN pecl channel-update pecl.php.net && pecl install redis xdebug-3.3.0 && docker-php-ext-enable redis
 RUN docker-php-ext-install mysqli 
 RUN docker-php-ext-install pdo
 RUN docker-php-ext-install pdo_mysql
-RUN docker-php-ext-install opcache
 RUN docker-php-ext-install zip
+RUN docker-php-ext-install gmp
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install sockets
