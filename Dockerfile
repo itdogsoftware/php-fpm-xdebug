@@ -23,7 +23,7 @@ RUN echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini
 RUN mv /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 # Update php config
 RUN sed -i "/memory_limit\s=\s/s/=.*/= 512M/" /usr/local/etc/php/php.ini
-
+COPY www.conf /usr/local/etc/php-fpm.d/www.conf
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
