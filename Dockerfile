@@ -1,4 +1,4 @@
-FROM php:8.5.12-fpm-trixie
+FROM php:8.5.13-fpm-trixie
 
 LABEL authors = "Roy To <roy.to@itdogsoftware.co>"
 # Install library & necessary service
